@@ -1,7 +1,7 @@
 <?php
 $controllerDir = __DIR__ . '/../controlador';
 $viewDir = __DIR__ . '/../vistas';
-$jsDir = __DIR__ . '/../js';
+$jsDir = __DIR__ . '/../vistas/js';
 
 foreach (glob("$controllerDir/*Controller.php") as $file) {
     $base = basename($file, 'Controller.php');
