@@ -82,6 +82,7 @@
 <script src="<?= APP_URL ?>app/template/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 
 
+<script src="<?= APP_URL ?>vistas/js/crud-helper.js"></script>
 </body>
 
 </html>
