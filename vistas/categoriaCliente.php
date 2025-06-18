@@ -66,6 +66,6 @@
 </div>
 
 <script>
-  window.BASE_URL = '';
+  window.BASE_URL = '<?= APP_URL ?>';
 </script>
 <script src="js/categoriaCliente.js"></script>

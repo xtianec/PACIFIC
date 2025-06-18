@@ -57,7 +57,7 @@ foreach (glob("$controllerDir/*Controller.php") as $file) {
     </div>
   </div>
 </div>
-<script>window.BASE_URL = '';</script>
+<script>window.BASE_URL = '<?= APP_URL ?>';</script>
 <script src="js/{$lower}.js"></script>
 PHP;
         file_put_contents($viewPath, $view);
