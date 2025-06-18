@@ -1,5 +1,7 @@
 <?php $pageTitle = 'Categoría de Cliente'; ?>
-<div class="page-wrapper">
+<?php require 'layout/header.php'; ?>
+<?php require 'layout/navbar.php'; ?>
+<?php require 'layout/sidebar.php'; ?>
   <div class="container-fluid pt-4">
 
     <!-- Título y breadcrumb -->
@@ -63,8 +65,7 @@
     </div>
 
   </div>
-</div>
-
+<?php require "layout/footer.php"; ?>
 <script>
   window.BASE_URL = '<?= APP_URL ?>';
 </script>

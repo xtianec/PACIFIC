@@ -1,5 +1,7 @@
 <?php $pageTitle = 'Unidad Medida'; ?>
-<div class="page-wrapper">
+<?php require 'layout/header.php'; ?>
+<?php require 'layout/navbar.php'; ?>
+<?php require 'layout/sidebar.php'; ?>
   <div class="container-fluid pt-4">
     <div class="row page-titles">
       <div class="col-md-5 align-self-center">
@@ -41,6 +43,6 @@
       </div>
     </div>
   </div>
-</div>
+<?php require "layout/footer.php"; ?>
 <script>window.BASE_URL = '<?= APP_URL ?>';</script>
 <script src="js/unidadMedida.js"></script>
