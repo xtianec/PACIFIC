@@ -44,5 +44,13 @@
     </div>
   </div>
 <?php require "layout/footer.php"; ?>
-<script>window.BASE_URL = '<?= APP_URL ?>';</script>
-<script src="<?= APP_URL ?>vistas/js/estadoEquipos.js"></script>
+<script>
+  window.BASE_URL = '<?= APP_URL ?>';
+  window.CRUD_CONFIG = {
+    controller: 'EstadoEquiposController.php',
+    tableId: 'tblEstadoEquipos',
+    modalId: 'modalEstadoEquipos',
+    formId: 'formEstadoEquipos'
+  };
+</script>
+<script src="<?= APP_URL ?>vistas/js/init-crud.js"></script>

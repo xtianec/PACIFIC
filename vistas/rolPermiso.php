@@ -44,5 +44,13 @@
     </div>
   </div>
 <?php require "layout/footer.php"; ?>
-<script>window.BASE_URL = '<?= APP_URL ?>';</script>
-<script src="<?= APP_URL ?>vistas/js/rolPermiso.js"></script>
+<script>
+  window.BASE_URL = '<?= APP_URL ?>';
+  window.CRUD_CONFIG = {
+    controller: 'RolPermisoController.php',
+    tableId: 'tblRolPermiso',
+    modalId: 'modalRolPermiso',
+    formId: 'formRolPermiso'
+  };
+</script>
+<script src="<?= APP_URL ?>vistas/js/init-crud.js"></script>

@@ -44,5 +44,13 @@
     </div>
   </div>
 <?php require "layout/footer.php"; ?>
-<script>window.BASE_URL = '<?= APP_URL ?>';</script>
-<script src="<?= APP_URL ?>vistas/js/linea.js"></script>
+<script>
+  window.BASE_URL = '<?= APP_URL ?>';
+  window.CRUD_CONFIG = {
+    controller: 'LineaController.php',
+    tableId: 'tblLinea',
+    modalId: 'modalLinea',
+    formId: 'formLinea'
+  };
+</script>
+<script src="<?= APP_URL ?>vistas/js/init-crud.js"></script>

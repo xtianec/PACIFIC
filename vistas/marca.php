@@ -44,5 +44,13 @@
     </div>
   </div>
 <?php require "layout/footer.php"; ?>
-<script>window.BASE_URL = '<?= APP_URL ?>';</script>
-<script src="<?= APP_URL ?>vistas/js/marca.js"></script>
+<script>
+  window.BASE_URL = '<?= APP_URL ?>';
+  window.CRUD_CONFIG = {
+    controller: 'MarcaController.php',
+    tableId: 'tblMarca',
+    modalId: 'modalMarca',
+    formId: 'formMarca'
+  };
+</script>
+<script src="<?= APP_URL ?>vistas/js/init-crud.js"></script>

@@ -68,5 +68,11 @@
 <?php require "layout/footer.php"; ?>
 <script>
   window.BASE_URL = '<?= APP_URL ?>';
+  window.CRUD_CONFIG = {
+    controller: 'CategoriaClienteController.php',
+    tableId: 'tbllistadoCategories',
+    modalId: 'modalCategoria',
+    formId: 'formCategoria'
+  };
 </script>
-<script src="<?= APP_URL ?>vistas/js/categoriaCliente.js"></script>
+<script src="<?= APP_URL ?>vistas/js/init-crud.js"></script>
