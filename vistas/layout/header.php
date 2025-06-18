@@ -49,7 +49,8 @@
     <link href="<?= APP_URL ?>app/template/css/pages/dashboard3.css" rel="stylesheet">
 
     <!-- Cargar jQuery Primero -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Cargamos jQuery de forma local para evitar errores si la CDN no está disponible -->
+    <script src="<?= APP_URL ?>app/template/plugins/jquery/jquery.min.js"></script>
 
     <!-- Eliminar custom.js de aquí -->
     <!-- <script src="../app/template/js/custom.js"></script> -->
