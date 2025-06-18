@@ -69,4 +69,4 @@
 <script>
   window.BASE_URL = '<?= APP_URL ?>';
 </script>
-<script src="js/categoriaCliente.js"></script>
+<script src="<?= APP_URL ?>vistas/js/categoriaCliente.js"></script>

@@ -45,4 +45,4 @@
   </div>
 <?php require "layout/footer.php"; ?>
 <script>window.BASE_URL = '<?= APP_URL ?>';</script>
-<script src="js/estadoDocumento.js"></script>
+<script src="<?= APP_URL ?>vistas/js/estadoDocumento.js"></script>
