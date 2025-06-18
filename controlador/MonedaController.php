@@ -41,7 +41,7 @@ switch ($_GET['op']) {
                     :'<button onclick="activarMoneda('.$reg->id.')">✔</button>'
             ];
         }
-        echo json_encode(["aaData"=>$data]);
+        echo json_encode(["data"=>$data]);
         break;
     case 'select':
         $rspta = $mc->select();

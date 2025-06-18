@@ -37,7 +37,7 @@ switch ($_GET['op']) {
                 htmlspecialchars($reg->modelo)
             ];
         }
-        echo json_encode(["aaData" => $data]);
+        echo json_encode(["data" => $data]);
         break;
 
     case 'select':

@@ -31,6 +31,6 @@ switch ($_GET['op']) {
                   . ')"><i class="fa fa-trash"></i></button>'
             ];
         }
-        echo json_encode(["aaData" => $data]);
+        echo json_encode(["data" => $data]);
         break;
 }
