@@ -65,4 +65,7 @@
   </div>
 </div>
 
-<script src="<?= BASE_URL ?>assets/js/pages/categoriaCliente.js"></script>
+<script>
+  window.BASE_URL = '';
+</script>
+<script src="js/categoriaCliente.js"></script>
