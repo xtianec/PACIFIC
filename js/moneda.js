@@ -1,7 +1,7 @@
 $(function () {
   const base = window.BASE_URL;
-  const ctrl = 'CategoriaClienteController.php';
-  const table = $('#tblCategoriaCliente').DataTable({
+  const ctrl = 'MonedaController.php';
+  const table = $('#tblMoneda').DataTable({
     ajax: {
       url: base + 'controlador/' + ctrl + '?op=listar',
       type: 'GET',
@@ -17,7 +17,7 @@ $(function () {
   });
 
   $('#btnNuevo').click(() => {
-    $('#formCategoriaCliente')[0].reset();
-    $('#modalCategoriaCliente').modal('show');
+    $('#formMoneda')[0].reset();
+    $('#modalMoneda').modal('show');
   });
 });

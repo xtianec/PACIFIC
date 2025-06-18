@@ -1,7 +1,7 @@
 $(function () {
   const base = window.BASE_URL;
-  const ctrl = 'CategoriaClienteController.php';
-  const table = $('#tblCategoriaCliente').DataTable({
+  const ctrl = 'ContactoController.php';
+  const table = $('#tblContacto').DataTable({
     ajax: {
       url: base + 'controlador/' + ctrl + '?op=listar',
       type: 'GET',
@@ -17,7 +17,7 @@ $(function () {
   });
 
   $('#btnNuevo').click(() => {
-    $('#formCategoriaCliente')[0].reset();
-    $('#modalCategoriaCliente').modal('show');
+    $('#formContacto')[0].reset();
+    $('#modalContacto').modal('show');
   });
 });

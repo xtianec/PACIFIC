@@ -1,7 +1,7 @@
 $(function () {
   const base = window.BASE_URL;
-  const ctrl = 'CategoriaClienteController.php';
-  const table = $('#tblCategoriaCliente').DataTable({
+  const ctrl = 'ProgramacionServiciosTecnicosController.php';
+  const table = $('#tblProgramacionServiciosTecnicos').DataTable({
     ajax: {
       url: base + 'controlador/' + ctrl + '?op=listar',
       type: 'GET',
@@ -17,7 +17,7 @@ $(function () {
   });
 
   $('#btnNuevo').click(() => {
-    $('#formCategoriaCliente')[0].reset();
-    $('#modalCategoriaCliente').modal('show');
+    $('#formProgramacionServiciosTecnicos')[0].reset();
+    $('#modalProgramacionServiciosTecnicos').modal('show');
   });
 });
