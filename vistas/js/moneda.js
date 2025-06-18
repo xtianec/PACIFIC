@@ -1,20 +1,20 @@
 $(function () {
   const base = window.BASE_URL;
   const ctrl = 'MonedaController.php';
-  function initTable(data) {
-    return $('#tblMoneda').DataTable({
-      data: data,
-      responsive: true
-    });
-  }
 
-  $.getJSON(base + 'controlador/' + ctrl + '?op=listar', function (json) {
-    const data = json.data || json.aaData || [];
-    if (data.length && $('#tblHead').children().length === 0) {
-      const headers = Object.keys(data[0]).map(k => `<th>${k}</th>`).join('');
-      $('#tblHead').html('<tr>' + headers + '</tr>');
+  const table = $('#tblMoneda').DataTable({
+    ajax: {
+      url: base + 'controlador/' + ctrl + '?op=listar',
+      type: 'GET',
+      dataSrc: function (json) {
+        const data = json.data || json.aaData || [];
+        if (data.length && $('#tblHead').children().length === 0) {
+          const headers = Object.keys(data[0]).map(k => `<th>${k}</th>`).join('');
+          $('#tblHead').html('<tr>' + headers + '</tr>');
+        }
+        return data;
+      }
     }
-    initTable(data);
   });
 
   $('#btnNuevo').click(() => {
