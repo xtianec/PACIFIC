@@ -47,16 +47,16 @@ if (isset($_SESSION['user_type'])) {
             <a class="navbar-brand" href="#">
                 <b>
                     <!-- Dark Logo icon -->
-                    <img src="/documenta/app/template/images/LOGO_FONDO_TRANSPARENTE.png" alt="homepage" class="dark-logo" style="height: 40px;" />
+                    <img src="<?= APP_URL ?>app/template/images/LOGO_FONDO_TRANSPARENTE.png" alt="homepage" class="dark-logo" style="height: 40px;" />
                     <!-- Light Logo icon -->
-                    <img src="/documenta/app/template/images/LOGO_FONDO_NEGRO_TRANSPARENTE.png" alt="homepage" class="light-logo" style="height: 40px;" />
+                    <img src="<?= APP_URL ?>app/template/images/LOGO_FONDO_NEGRO_TRANSPARENTE.png" alt="homepage" class="light-logo" style="height: 40px;" />
                 </b>
                 <!-- Logo text -->
                 <span>
                     <!-- dark Logo text -->
-                    <img src="/documenta/app/template/images/TEXTO_FONDO_TRANSPARENTE.png" alt="homepage" class="dark-logo" style="height: 40px; " />
+                    <img src="<?= APP_URL ?>app/template/images/TEXTO_FONDO_TRANSPARENTE.png" alt="homepage" class="dark-logo" style="height: 40px; " />
                     <!-- Light Logo text -->
-                    <img src="/documenta/app/template/images/TEXTO_FONDO_NEGRO_TRANSPARENTE.png" class="light-logo" alt="homepage" style="height: 40px;" />
+                    <img src="<?= APP_URL ?>app/template/images/TEXTO_FONDO_NEGRO_TRANSPARENTE.png" class="light-logo" alt="homepage" style="height: 40px;" />
                 </span>
 
             </a>
