@@ -4,8 +4,10 @@
 // Iniciar la sesión
 session_start();
 
-// Autoload de Composer (si es necesario)
-require_once 'vendor/autoload.php';
+// Autoload de Composer (si está disponible)
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
+}
 
 // Incluir archivos de configuración
 require_once 'config/global.php';
