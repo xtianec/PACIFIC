@@ -1,23 +1,8 @@
 $(function () {
-  const base = window.BASE_URL;
-  const ctrl = 'UnidadMedidaController.php';
-  const table = $('#tblUnidadMedida').DataTable({
-    ajax: {
-      url: base + 'controlador/' + ctrl + '?op=listar',
-      type: 'GET',
-      dataSrc: function (json) {
-        const data = json.data || json.aaData || [];
-        if (data.length && $('#tblHead').children().length === 0) {
-          const headers = Object.keys(data[0]).map(k => `<th>${k}</th>`).join('');
-          $('#tblHead').html('<tr>' + headers + '</tr>');
-        }
-        return data;
-      }
-    }
-  });
-
-  $('#btnNuevo').click(() => {
-    $('#formUnidadMedida')[0].reset();
-    $('#modalUnidadMedida').modal('show');
+  initCrud({
+    controller: 'UnidadMedidaController.php',
+    tableId: 'tblUnidadMedida',
+    modalId: 'modalUnidadMedida',
+    formId: 'formUnidadMedida'
   });
 });
