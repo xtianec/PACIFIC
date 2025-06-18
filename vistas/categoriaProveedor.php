@@ -31,10 +31,16 @@
       <div class="modal-dialog">
         <form id="formCategoriaProveedor" class="modal-content">
           <div class="modal-header bg-primary text-white">
-            <h5 class="modal-title">Nuevo Categoria Proveedor</h5>
+            <h5 class="modal-title">Nueva Categoría</h5>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
-          <div class="modal-body" id="formFields"></div>
+          <div class="modal-body">
+            <input type="hidden" id="categoria_id" name="id">
+            <div class="form-group">
+              <label for="categoria_nombre">Nombre</label>
+              <input type="text" id="categoria_nombre" name="nombre" class="form-control" required>
+            </div>
+          </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-light">Guardar</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

@@ -18,6 +18,22 @@ switch ($_GET['op']) {
         echo $rspta ? "Categoría proveedor actualizada correctamente" : "Error al actualizar categoría proveedor";
         break;
 
+    case 'desactivar':
+        $rspta = $cat->desactivar($id);
+        echo json_encode([
+            'status' => $rspta ? 'success' : 'error',
+            'msg'    => $rspta ? 'Categoría desactivada' : 'Error al desactivar categoría'
+        ]);
+        break;
+
+    case 'activar':
+        $rspta = $cat->activar($id);
+        echo json_encode([
+            'status' => $rspta ? 'success' : 'error',
+            'msg'    => $rspta ? 'Categoría activada' : 'Error al activar categoría'
+        ]);
+        break;
+
     case 'mostrar':
         $rspta = $cat->mostrar($id);
         echo json_encode($rspta);
@@ -28,11 +44,20 @@ switch ($_GET['op']) {
         $data  = [];
         while ($reg = $rspta->fetch_object()) {
             $data[] = [
-                "0" => $reg->categoria_id,
-                "1" => htmlspecialchars($reg->nombre)
+                $reg->id,
+                htmlspecialchars($reg->nombre),
+                $reg->created_at,
+                $reg->updated_at,
+                $reg->is_active
+                  ? '<span class="badge badge-success">Activo</span>'
+                  : '<span class="badge badge-danger">Inactivo</span>',
+                $reg->is_active
+                  ? '<button class="btn btn-sm btn-primary btn-edit" data-id="' . $reg->id . '"><i class="fa fa-edit"></i></button> '
+                    .'<button class="btn btn-sm btn-danger btn-deactivate" data-id="' . $reg->id . '"><i class="fa fa-trash"></i></button>'
+                  : '<button class="btn btn-sm btn-success btn-activate" data-id="' . $reg->id . '"><i class="fa fa-check"></i></button>'
             ];
         }
-        echo json_encode(["data" => $data]);
+        echo json_encode(['data' => $data]);
         break;
 
     case 'select':
