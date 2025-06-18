@@ -24,206 +24,97 @@ function hasAccess($required_roles = [], $required_types = [])
     <div class="scroll-sidebar">
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <!-- DASHBOARD -->
-                <?php if (hasAccess(['superadmin', 'adminrh', 'adminpr', 'user', 'applicant', 'supplier'])): ?>
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-view-dashboard"></i>
-                            <span class="hide-menu"><b>DASHBOARD</b></span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse">
-                            <?php if ($user_role == 'superadmin'): ?>
-                                <li><a href="dashboardSuperadmin"><i class="mdi mdi-view-dashboard"></i> Dashboard Superadmin</a></li>
-                            <?php endif; ?>
-                            <?php if ($user_role == 'adminrh'): ?>
-                                <li><a href="dashboardAdminRH"><i class="mdi mdi-human-male-female"></i> Dashboard Admin RH</a></li>
-                            <?php endif; ?>
-                            <?php if ($user_role == 'adminpr'): ?>
-                                <li><a href="dashboardAdminPR"><i class="mdi mdi-truck"></i> Dashboard Admin PR</a></li>
-                            <?php endif; ?>
-                            <?php if ($user_role == 'user'): ?>
-                                <li><a href="dashboardUser"><i class="mdi mdi-account"></i> Dashboard Usuario</a></li>
-                            <?php endif; ?>
-                            <?php if ($user_role == 'applicant'): ?>
-                                <li><a href="dashboardUser"><i class="mdi mdi-account"></i> Dashboard Postulante</a></li>
-                            <?php endif; ?>
-                            <?php if ($user_role == 'supplier'): ?>
-                                <li><a href="dashboardUser"><i class="mdi mdi-account"></i> Dashboard Proveedor</a></li>
-                            <?php endif; ?>
-                        </ul>
-                    </li>
-                <?php endif; ?>
-
                 <li class="nav-devider"></li>
-
-                <!-- CONFIGURACIÓN -->
-
-                <!-- CONFIGURACIÓN -->
-                <?php if (hasAccess(['superadmin', 'adminrh', 'adminpr'])): ?>
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-settings"></i>
-                            <span class="hide-menu"><b>CONFIGURACIÓN</b></span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse">
-
-                            <?php if (hasAccess(['superadmin', 'adminrh'])): ?>
-                                <li><a href="administrar"><i class="mdi mdi-store"></i> Crear Empresa, Áreas y Puestos</a></li>
-                                <li><a href="documentName"><i class="mdi mdi-store"></i> Crear de Documentos Usuarios</a></li>
-                                <li><a href="documentMandatory"><i class="fa fa-book"></i> Asignar Documentos a Puestos</a></li>
-
-                            <?php endif; ?>
-
-                            <?php if (hasAccess(['superadmin', 'adminpr'])): ?>
-                                <li><a href="documentNameSupplier"><i class="mdi mdi-file-document"></i> Crear Documentos Proveedores</a></li>
-                            <?php endif; ?>
-
-                        </ul>
-                    </li>
-                <?php endif; ?>
-
-                <li class="nav-devider"></li>
-                <?php if (hasAccess(['superadmin', 'adminrh', 'adminpr'])): ?>
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-settings"></i>
-                            <span class="hide-menu"><b>GESTIÓN</b></span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse">
-
-                            <?php if (hasAccess(['superadmin', 'adminrh'])): ?>
-                                <li><a href="user"><i class="fa fa-user-circle"></i> Usuarios</a></li>
-                                <li><a href="applicants"><i class="fa fa-users"></i> Postulantes</a></li>
-                            <?php endif; ?>
-
-                            <?php if (hasAccess(['superadmin', 'adminpr'])): ?>
-                                <li><a href="supplier"><i class="fa fa-truck"></i> Proveedores</a></li>
-                            <?php endif; ?>
-
-                        </ul>
-                    </li>
-                <?php endif; ?>
-
-                <li class="nav-devider"></li>
-
-                <?php if (hasAccess(['superadmin', 'adminrh', 'adminpr'])): ?>
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-settings"></i>
-                            <span class="hide-menu"><b>EVALUACIÓN</b></span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse">
-
-                            <?php if (hasAccess(['superadmin', 'adminrh'])): ?>
-                                <li><a href="admin_user_documents"><i class="mdi mdi-store"></i> Colaboradores</a></li>
-                                <li><a href="admin_applicant_documents"><i class="fa fa-users"></i> Postulantes</a></li>
-                            <?php endif; ?>
-
-                            <?php if (hasAccess(['superadmin', 'adminpr'])): ?>
-                                <li><a href="proveedores"><i class="mdi mdi-truck"></i> Empresas</a></li>
-                            <?php endif; ?>
-                        </ul>
-                    </li>
-                <?php endif; ?>
-
-
-                <li class="nav-devider"></li>
-
-                <?php if (hasAccess(['superadmin', 'adminrh', 'adminpr','applicant','supplier'])): ?>
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-settings"></i>
-                            <span class="hide-menu"><b>DOCUMENTACIÓN</b></span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse">
-
-                            <?php if (hasAccess(['superadmin', 'adminrh','adminpr','user'])): ?>
-                                <li><a href="documentUpload"><i class="mdi mdi-store"></i> Subir Documentos</a></li>
-   
-                            <?php endif; ?>
-
-                            <?php if (hasAccess(['applicant'])): ?>
-                                <li><a href="documentApplicant"><i class="mdi mdi-truck"></i> Subir Documentos</a></li>
-                                <li><a href="experience"><i class="mdi mdi-truck"></i> Experiencia</a></li>
-
-
-                            <?php endif; ?>
-
-                            <?php if (hasAccess(['supplier'])): ?>
-                                <li><a href="documentSupplier"><i class="mdi mdi-truck"></i> Subir Documentos</a></li>
-                            <?php endif; ?>
-                        </ul>
-                    </li>
-                <?php endif; ?>
-
-
-
-
-                <!-- USUARIOS -->
-                <?php if (hasAccess(['superadmin', 'adminrh', 'adminpr'])): ?>
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-account-multiple"></i>
-                            <span class="hide-menu"><b>USUARIOS</b></span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse">
-                            <?php if (hasAccess(['superadmin', 'adminrh'])): ?>
-                                <li><a href="registrar_usuario"><i class="mdi mdi-account-plus"></i> Registrar Usuario</a></li>
-                                <li><a href="actualizar_usuario"><i class="mdi mdi-account-edit"></i> Actualizar Usuario</a></li>
-                            <?php endif; ?>
-                        </ul>
-                    </li>
-                <?php endif; ?>
-
-
-                <li class="nav-devider"></li>
-                <!-- OTROS MENÚS -->
-                <?php if ($user_type == 'applicant'): ?>
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-account-box"></i>
-                            <span class="hide-menu"><b>POSTULANTES</b></span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="dashboardApplicant"><i class="mdi mdi-view-dashboard"></i> Dashboard</a></li>
-                            <li><a href="applicant_details"><i class="mdi mdi-account-details"></i> Detalles del Postulante</a></li>
-                            <li><a href="experience"><i class="mdi mdi-file"></i> Documentos del Postulante</a></li>
-                            <li><a href="mostrar_experiencia"><i class="mdi mdi-file"></i> Documentos del Postulante</a></li>
-                            <li><a href="edit_experience"><i class="mdi mdi-file"></i> Documentos del Postulante</a></li>
-                        </ul>
-                    </li>
-
-
-                    <li class="nav-devider"></li>
-                <?php elseif ($user_type == 'supplier'): ?>
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-truck-delivery"></i>
-                            <span class="hide-menu"><b>PROVEEDORES</b></span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="supplier_dashboard"><i class="mdi mdi-view-dashboard"></i> Dashboard Proveedor</a></li>
-                            <li><a href="supplierDetails"><i class="mdi mdi-account-box"></i> Detalles del Proveedor</a></li>
-                        </ul>
-                    </li>
-
-
-                    <li class="nav-devider"></li>
-                <?php elseif ($user_type == 'user'): ?>
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-truck-delivery"></i>
-                            <span class="hide-menu"><b> DCOUMENTACIÓN USUARIOS</b></span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="supplier_dashboard"><i class="mdi mdi-view-dashboard"></i> Dashboard Proveedor</a></li>
-                            <li><a href="documentUpload"><i class="mdi mdi-account-box"></i> Subir Documentos</a></li>
-                            <li><a href="user_details"><i class="mdi mdi-account-box"></i>Registrar Datos</a></li>
-                        </ul>
-                    </li>
-                <?php endif; ?>
-
-                <!-- CERRAR SESIÓN -->
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span class="hide-menu"><b>DASHBOARD</b></span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="dashboardSuperadmin">Dashboard</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-folder-multiple"></i>
+                        <span class="hide-menu"><b>ADMINISTRACIÓN</b></span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="categoriaCliente">Categoría Cliente</a></li>
+                        <li><a href="categoriaProveedor">Categoría Proveedor</a></li>
+                        <li><a href="cliente">Cliente</a></li>
+                        <li><a href="clienteContacto">Contacto Cliente</a></li>
+                        <li><a href="clienteLocal">Local Cliente</a></li>
+                        <li><a href="proveedor">Proveedor</a></li>
+                        <li><a href="contacto">Contacto</a></li>
+                        <li><a href="condicionPago">Condición Pago</a></li>
+                        <li><a href="formaPago">Forma Pago</a></li>
+                        <li><a href="moneda">Moneda</a></li>
+                        <li><a href="tipoRetencion">Tipo Retención</a></li>
+                        <li><a href="notificacion">Notificación</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-database"></i>
+                        <span class="hide-menu"><b>INVENTARIO</b></span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="linea">Línea</a></li>
+                        <li><a href="sublinea">Sub línea</a></li>
+                        <li><a href="marca">Marca</a></li>
+                        <li><a href="tipoArticulo">Tipo Artículo</a></li>
+                        <li><a href="tipoMovimientoAlmacen">Tipo Movimiento Almacén</a></li>
+                        <li><a href="unidadMedida">Unidad Medida</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-tools"></i>
+                        <span class="hide-menu"><b>EQUIPOS Y SERVICIOS</b></span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="equipo">Equipo</a></li>
+                        <li><a href="equipoModelo">Modelo Equipo</a></li>
+                        <li><a href="equipoTipo">Tipo Equipo</a></li>
+                        <li><a href="servicioTecnico">Servicio Técnico</a></li>
+                        <li><a href="tipoServicio">Tipo Servicio</a></li>
+                        <li><a href="programacionServiciosTecnicos">Programación Servicios Técnicos</a></li>
+                        <li><a href="plantilla">Plantilla</a></li>
+                        <li><a href="plantillaHoras">Plantilla Horas</a></li>
+                        <li><a href="plantillaRepuesto">Plantilla Repuesto</a></li>
+                        <li><a href="plantillaRespuestoHora">Plantilla Repuesto Hora</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-file-document"></i>
+                        <span class="hide-menu"><b>DOCUMENTOS Y ESTADOS</b></span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="estadoCotizacion">Estado Cotización</a></li>
+                        <li><a href="estadoDocumento">Estado Documento</a></li>
+                        <li><a href="estadoEquipos">Estado Equipos</a></li>
+                        <li><a href="estadoOrdenCompra">Estado Orden Compra</a></li>
+                        <li><a href="estadoOrdenTrabajo">Estado Orden Trabajo</a></li>
+                        <li><a href="guiaRemModalidad">Guía Remisión Modalidad</a></li>
+                        <li><a href="guiaRemMotivo">Guía Remisión Motivo</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-security"></i>
+                        <span class="hide-menu"><b>SEGURIDAD</b></span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="modulo">Módulo</a></li>
+                        <li><a href="permiso">Permiso</a></li>
+                        <li><a href="rol">Rol</a></li>
+                        <li><a href="rolPermiso">Rol Permiso</a></li>
+                        <li><a href="usuario">Usuario</a></li>
+                        <li><a href="usuarioRol">Usuario Rol</a></li>
+                    </ul>
+                </li>
                 <li class="nav-devider"></li>
                 <li>
                     <a href="logout" class="waves-effect waves-dark">
@@ -251,4 +142,3 @@ function hasAccess($required_roles = [], $required_types = [])
                 <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10">
                     <i class="ti-settings text-white"></i>
                 </button>
-            </div>
