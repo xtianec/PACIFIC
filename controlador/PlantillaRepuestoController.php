@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
-require_once __DIR__ . '/../modelos/PlantillaRepuesto.php';
+// Corregimos la ruta al modelo (el archivo real es PlantillaRepuestos.php)
+require_once __DIR__ . '/../modelos/PlantillaRepuestos.php';
 header('Content-Type: application/json; charset=utf-8');
 
 $pr = new PlantillaRepuesto();
