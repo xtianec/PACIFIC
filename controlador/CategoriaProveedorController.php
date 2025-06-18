@@ -4,18 +4,27 @@ require_once __DIR__ . '/../modelos/CategoriaProveedor.php';
 
 $cat = new CategoriaProveedor();
 
-$id     = isset($_POST['id'])     ? limpiarCadena($_POST['id'])     : '';
-$nombre = isset($_POST['nombre']) ? limpiarCadena($_POST['nombre']) : '';
+header('Content-Type: application/json; charset=utf-8');
 
-switch ($_GET['op']) {
+$op     = $_GET['op'] ?? '';
+$id     = $_POST['id'] ?? '';
+$nombre = $_POST['nombre'] ?? '';
+
+switch ($op) {
     case 'guardar':
-        $rspta = $cat->insertar($nombre);
-        echo $rspta ? "Categoría proveedor registrada correctamente" : "Error al registrar categoría proveedor";
+        $ok = $cat->insertar($nombre);
+        echo json_encode([
+            'status' => $ok ? 'success' : 'error',
+            'msg'    => $ok ? 'Categoría creada correctamente' : 'Error al crear categoría'
+        ]);
         break;
 
     case 'editar':
-        $rspta = $cat->editar($id, $nombre);
-        echo $rspta ? "Categoría proveedor actualizada correctamente" : "Error al actualizar categoría proveedor";
+        $ok = $cat->editar($id, $nombre);
+        echo json_encode([
+            'status' => $ok ? 'success' : 'error',
+            'msg'    => $ok ? 'Categoría actualizada correctamente' : 'Error al actualizar categoría'
+        ]);
         break;
 
     case 'desactivar':
