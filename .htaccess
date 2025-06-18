@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /documenta/
+RewriteBase /compresor/
 
 # Entregar archivos o directorios existentes sin aplicar reescritura
 RewriteCond %{REQUEST_FILENAME} -f [OR]

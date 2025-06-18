@@ -19,5 +19,5 @@ define("DB_ENCODE", "utf8");
 // Nombre del proyecto
 define("PRO_NOMBRE", "PACIFIC COMPRESSOR");
 // URL base de la aplicación
-define("APP_URL", "/documenta/");
+define("APP_URL", "/compresor/");
 ?>
