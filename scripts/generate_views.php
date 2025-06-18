@@ -14,7 +14,10 @@ foreach (glob("$controllerDir/*Controller.php") as $file) {
         $lower = lcfirst($base);
         $view = <<<PHP
 <?php \$pageTitle = '$pageTitle'; ?>
-<div class="page-wrapper">
+<?php require 'layout/header.php'; ?>
+<?php require 'layout/navbar.php'; ?>
+<?php require 'layout/sidebar.php'; ?>
+
   <div class="container-fluid pt-4">
     <div class="row page-titles">
       <div class="col-md-5 align-self-center">
@@ -55,10 +58,10 @@ foreach (glob("$controllerDir/*Controller.php") as $file) {
         </form>
       </div>
     </div>
-  </div>
-</div>
-<script>window.BASE_URL = '<?= APP_URL ?>';</script>
-<script src="js/{$lower}.js"></script>
+    </div>
+<?php require 'layout/footer.php'; ?>
+  <script>window.BASE_URL = '<?= APP_URL ?>';</script>
+  <script src="js/{$lower}.js"></script>
 PHP;
         file_put_contents($viewPath, $view);
     }
