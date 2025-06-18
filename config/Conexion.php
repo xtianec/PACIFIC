@@ -4,7 +4,8 @@ require_once "Utilidades.php";
 
 $conexion = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-mysqli_query($conexion, 'SET NAMES "' . DB_ENCODE . '"');
+// Establecer la codificación de caracteres para la conexión
+mysqli_set_charset($conexion, DB_ENCODE);
 
 // Muestra posible error en la conexión
 if (mysqli_connect_errno()) {
@@ -114,7 +115,7 @@ if (!function_exists('ejecutarConsulta')) {
         }
 
         if ($stmt->execute()) {
-            $id = $stmt->insert_id;
+            $id = $conexion->insert_id; // obtener el id generado por la inserción
             $stmt->close();
             return $id;
         } else {
