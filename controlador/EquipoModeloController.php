@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/EquipoModelo.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mod = new EquipoModelo();
 
@@ -10,12 +11,12 @@ $nombre = isset($_POST['nombre']) ? limpiarCadena($_POST['nombre']) : '';
 switch ($_GET['op']) {
     case 'guardar':
         $rspta = $mod->insertar($nombre);
-        echo $rspta ? "Modelo de equipo registrado correctamente" : "Error al registrar modelo de equipo";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Modelo de equipo registrado correctamente' : 'Error al registrar modelo de equipo']);
         break;
 
     case 'editar':
         $rspta = $mod->editar($id, $nombre);
-        echo $rspta ? "Modelo de equipo actualizado correctamente" : "Error al actualizar modelo de equipo";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Modelo de equipo actualizado correctamente' : 'Error al actualizar modelo de equipo']);
         break;
 
     case 'mostrar':

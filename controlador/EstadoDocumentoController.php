@@ -2,6 +2,7 @@
 // File: controlador/EstadoDocumentoController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/EstadoDocumento.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new EstadoDocumento();
 $id     = isset($_POST['id'])          ? limpiarCadena($_POST['id'])          : '';

@@ -2,6 +2,7 @@
 // File: controlador/UsuarioRolController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/UsuarioRol.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new UsuarioRol();
 $usuario_id = isset($_POST['usuario_id']) ? limpiarCadena($_POST['usuario_id']) : '';

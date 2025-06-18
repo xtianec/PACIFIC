@@ -2,6 +2,7 @@
 // File: controlador/PermisoController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/Permiso.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new Permiso();
 $id        = isset($_POST['id'])        ? limpiarCadena($_POST['id'])        : '';

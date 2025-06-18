@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/CategoriaProveedor.php';
+header("Content-Type: application/json; charset=utf-8");
 
 $cat = new CategoriaProveedor();
 
@@ -10,12 +11,12 @@ $nombre = isset($_POST['nombre']) ? limpiarCadena($_POST['nombre']) : '';
 switch ($_GET['op']) {
     case 'guardar':
         $rspta = $cat->insertar($nombre);
-        echo $rspta ? "Categoría proveedor registrada correctamente" : "Error al registrar categoría proveedor";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Categoría proveedor registrada correctamente' : 'Error al registrar categoría proveedor']);
         break;
 
     case 'editar':
         $rspta = $cat->editar($id, $nombre);
-        echo $rspta ? "Categoría proveedor actualizada correctamente" : "Error al actualizar categoría proveedor";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Categoría proveedor actualizada correctamente' : 'Error al actualizar categoría proveedor']);
         break;
 
     case 'desactivar':

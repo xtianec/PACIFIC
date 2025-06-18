@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/ClienteLocal.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $cl = new ClienteLocal();
 
@@ -14,12 +15,12 @@ $departamento= isset($_POST['departamento']) ? limpiarCadena($_POST['departament
 switch ($_GET['op']) {
     case 'guardar':
         $rspta = $cl->insertar($cliente_id, $nombre, $direccion, $ciudad, $departamento);
-        echo $rspta ? "Planta registrada correctamente" : "Error al registrar planta";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Planta registrada correctamente' : 'Error al registrar planta']);
         break;
 
     case 'editar':
         $rspta = $cl->editar($id, $cliente_id, $nombre, $direccion, $ciudad, $departamento);
-        echo $rspta ? "Planta actualizada correctamente" : "Error al actualizar planta";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Planta actualizada correctamente' : 'Error al actualizar planta']);
         break;
 
     case 'mostrar':

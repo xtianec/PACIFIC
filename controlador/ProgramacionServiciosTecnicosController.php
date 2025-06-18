@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/ProgramacionServiciosTecnicos.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $pst = new ProgramacionServiciosTecnicos();
 
@@ -22,7 +23,7 @@ switch ($_GET['op']) {
             $horas_ultimo, $fecha_proximo,
             $horas_proximo, $notificar
         );
-        echo $rspta ? "Programación registrada correctamente" : "Error al registrar programación";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Programación registrada correctamente' : 'Error al registrar programación']);
         break;
 
     case 'editar':
@@ -33,7 +34,7 @@ switch ($_GET['op']) {
             $horas_ultimo, $fecha_proximo,
             $horas_proximo, $notificar
         );
-        echo $rspta ? "Programación actualizada correctamente" : "Error al actualizar programación";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Programación actualizada correctamente' : 'Error al actualizar programación']);
         break;
 
     case 'mostrar':

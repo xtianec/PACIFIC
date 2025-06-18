@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/Equipo.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $equ = new Equipo();
 
@@ -24,7 +25,7 @@ switch ($_GET['op']) {
             $ubicacion, $fecha_adquisicion,
             $estado_id, $horometro_actual
         );
-        echo $rspta ? "Equipo registrado correctamente" : "Error al registrar equipo";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Equipo registrado correctamente' : 'Error al registrar equipo']);
         break;
 
     case 'editar':
@@ -35,7 +36,7 @@ switch ($_GET['op']) {
             $ubicacion, $fecha_adquisicion,
             $estado_id, $horometro_actual
         );
-        echo $rspta ? "Equipo actualizado correctamente" : "Error al actualizar equipo";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Equipo actualizado correctamente' : 'Error al actualizar equipo']);
         break;
 
     case 'mostrar':
