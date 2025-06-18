@@ -2,6 +2,7 @@
 // File: controlador/TipoMovimientoAlmacenController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/TipoMovimientoAlmacen.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new TipoMovimientoAlmacen();
 $id     = isset($_POST['id'])        ? limpiarCadena($_POST['id'])        : '';

@@ -2,6 +2,7 @@
 // File: controlador/RolPermisoController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/RolPermiso.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new RolPermiso();
 $rol_id     = isset($_POST['rol_id'])    ? limpiarCadena($_POST['rol_id'])    : '';

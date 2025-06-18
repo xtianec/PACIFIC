@@ -2,6 +2,7 @@
 // File: controlador/UsuarioController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/Usuario.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new Usuario();
 $id       = isset($_POST['id'])       ? limpiarCadena($_POST['id'])       : '';
@@ -21,7 +22,7 @@ switch ($_GET['op']) {
         } else {
             $rspta = $mc->editar($id, $username, $estado);
         }
-        echo $rspta ? "Actualizado" : "Error al actualizar";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Actualizado' : 'Error al actualizar']);
         break;
     case 'desactivar':
         echo $mc->desactivar($id) ? "Desactivado" : "Error al desactivar";

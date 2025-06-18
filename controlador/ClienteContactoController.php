@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/ClienteContacto.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $cc = new ClienteContacto();
 
@@ -10,12 +11,12 @@ $contacto_id = isset($_POST['contacto_id']) ? limpiarCadena($_POST['contacto_id'
 switch ($_GET['op']) {
     case 'asignar':
         $rspta = $cc->asignar($cliente_id, $contacto_id);
-        echo $rspta ? "Contacto asignado al cliente" : "Error al asignar contacto";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Contacto asignado al cliente' : 'Error al asignar contacto']);
         break;
 
     case 'desasignar':
         $rspta = $cc->desasignar($cliente_id, $contacto_id);
-        echo $rspta ? "Contacto desasignado del cliente" : "Error al desasignar contacto";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Contacto desasignado del cliente' : 'Error al desasignar contacto']);
         break;
 
     case 'listar':

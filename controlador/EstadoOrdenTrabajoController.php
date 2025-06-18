@@ -2,6 +2,7 @@
 // File: controlador/EstadoOrdenTrabajoController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/EstadoOrdenTrabajo.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new EstadoOrdenTrabajo();
 $id     = isset($_POST['id'])          ? limpiarCadena($_POST['id'])          : '';

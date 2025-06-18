@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/Contacto.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $cont = new Contacto();
 
@@ -13,12 +14,12 @@ $email     = isset($_POST['email'])   ? limpiarCadena($_POST['email'])   : '';
 switch ($_GET['op']) {
     case 'guardar':
         $rspta = $cont->insertar($nombre, $cargo, $telefono, $email);
-        echo $rspta ? "Contacto registrado correctamente" : "Error al registrar contacto";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Contacto registrado correctamente' : 'Error al registrar contacto']);
         break;
 
     case 'editar':
         $rspta = $cont->editar($id, $nombre, $cargo, $telefono, $email);
-        echo $rspta ? "Contacto actualizado correctamente" : "Error al actualizar contacto";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Contacto actualizado correctamente' : 'Error al actualizar contacto']);
         break;
 
     case 'mostrar':

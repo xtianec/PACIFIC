@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/Cliente.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $cli = new Cliente();
 
@@ -33,7 +34,7 @@ switch ($_GET['op']) {
             $contacto_responsable, $cargo_contacto,
             $telefono_contacto, $email_contacto
         );
-        echo $rspta ? "Cliente registrado correctamente" : "Error al registrar cliente";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Cliente registrado correctamente' : 'Error al registrar cliente']);
         break;
 
     case 'editar':
@@ -47,7 +48,7 @@ switch ($_GET['op']) {
             $contacto_responsable, $cargo_contacto,
             $telefono_contacto, $email_contacto
         );
-        echo $rspta ? "Cliente actualizado correctamente" : "Error al actualizar cliente";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Cliente actualizado correctamente' : 'Error al actualizar cliente']);
         break;
 
     case 'mostrar':

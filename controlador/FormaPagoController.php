@@ -2,6 +2,7 @@
 // File: controlador/FormaPagoController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/FormaPago.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new FormaPago();
 $id     = isset($_POST['id'])          ? limpiarCadena($_POST['id'])          : '';

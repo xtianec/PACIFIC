@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/GuiaRemModalidad.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new GuiaRemModalidad();
 

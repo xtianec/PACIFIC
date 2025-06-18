@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/Notificacion.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $not = new Notificacion();
 
@@ -13,7 +14,7 @@ $resultado      = isset($_POST['resultado'])     ? limpiarCadena($_POST['resulta
 switch ($_GET['op']) {
     case 'guardar':
         $rspta = $not->insertar($programacion_id, $enviado_at, $medio, $resultado);
-        echo $rspta ? "Notificación registrada correctamente" : "Error al registrar notificación";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Notificación registrada correctamente' : 'Error al registrar notificación']);
         break;
 
     case 'listar':

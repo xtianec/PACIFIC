@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/PlantillaRepuestoHora.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $prh = new PlantillaRepuestoHora();
 
@@ -11,7 +12,7 @@ $horas_id              = isset($_POST['horas_id'])              ? limpiarCadena(
 switch ($_GET['op']) {
     case 'guardar':
         $rspta = $prh->insertar($plantilla_repuesto_id, $horas_id);
-        echo $rspta ? "Hora asignada al repuesto" : "Error al asignar hora";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Hora asignada al repuesto' : 'Error al asignar hora']);
         break;
 
     case 'listar':

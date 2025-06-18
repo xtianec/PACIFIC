@@ -2,6 +2,7 @@
 // File: controlador/EstadoCotizacionController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/EstadoCotizacion.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new EstadoCotizacion();
 $id     = isset($_POST['id'])          ? limpiarCadena($_POST['id'])          : '';
