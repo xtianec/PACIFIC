@@ -44,5 +44,13 @@
     </div>
   </div>
 <?php require "layout/footer.php"; ?>
-<script>window.BASE_URL = '<?= APP_URL ?>';</script>
-<script src="<?= APP_URL ?>vistas/js/plantillaRepuesto.js"></script>
+<script>
+  window.BASE_URL = '<?= APP_URL ?>';
+  window.CRUD_CONFIG = {
+    controller: 'PlantillaRepuestoController.php',
+    tableId: 'tblPlantillaRepuesto',
+    modalId: 'modalPlantillaRepuesto',
+    formId: 'formPlantillaRepuesto'
+  };
+</script>
+<script src="<?= APP_URL ?>vistas/js/init-crud.js"></script>

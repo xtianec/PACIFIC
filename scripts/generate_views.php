@@ -60,39 +60,18 @@ foreach (glob("$controllerDir/*Controller.php") as $file) {
     </div>
     </div>
 <?php require 'layout/footer.php'; ?>
-  <script>window.BASE_URL = '<?= APP_URL ?>';</script>
-  <script src="js/{$lower}.js"></script>
+  <script>
+    window.BASE_URL = '<?= APP_URL ?>';
+    window.CRUD_CONFIG = {
+      controller: '{$base}Controller.php',
+      tableId: 'tbl{$base}',
+      modalId: 'modal{$base}',
+      formId: 'form{$base}'
+    };
+  </script>
+  <script src="js/init-crud.js"></script>
 PHP;
         file_put_contents($viewPath, $view);
     }
 
-    if (!file_exists($jsPath)) {
-        $lower = lcfirst($base);
-        $js = <<<JS
-$(function () {
-  const base = window.BASE_URL;
-  const ctrl = '{$base}Controller.php';
-  const table = $('#tbl{$base}').DataTable({
-    ajax: {
-      url: base + 'controlador/' + ctrl + '?op=listar',
-      type: 'GET',
-      dataSrc: function (json) {
-        const data = json.data || json.aaData || [];
-        if (data.length && $('#tblHead').children().length === 0) {
-          const headers = Object.keys(data[0]).map(k => `<th>\${k}</th>`).join('');
-          $('#tblHead').html('<tr>' + headers + '</tr>');
-        }
-        return data;
-      }
-    }
-  });
-
-  $('#btnNuevo').click(() => {
-    $('#form{$base}')[0].reset();
-    $('#modal{$base}').modal('show');
-  });
-});
-JS;
-        file_put_contents($jsPath, $js);
-    }
 }
