@@ -83,12 +83,14 @@ $(function () {
   $('#tbllistadoCategories').on('click', '.btn-deactivate', function () {
     const id = $(this).data('id');
     Swal.fire({
-      title: '¿Desactivar categoría?', icon: 'warning', showCancelButton: true
+      title: '¿Desactivar categoría?',
+      icon: 'warning',
+      showCancelButton: true
     }).then(r => {
       if (r.isConfirmed) {
         $.post(
-          base + 'controlador/CategoriaClienteController.php?op=' + op,
-          $(this).serialize(),
+          base + 'controlador/CategoriaClienteController.php?op=desactivar',
+          { id },
           function (resp) {
             if (resp.status === 'success') {
               Swal.fire('¡Hecho!', resp.msg, 'success');
