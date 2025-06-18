@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/ServicioTecnico.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $st = new ServicioTecnico();
 
@@ -19,7 +20,7 @@ switch ($_GET['op']) {
             $fecha_servicio, $horometro,
             $horas_trabajadas, $notas
         );
-        echo $rspta ? "Servicio registrado correctamente" : "Error al registrar servicio";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Servicio registrado correctamente' : 'Error al registrar servicio']);
         break;
 
     case 'mostrar':

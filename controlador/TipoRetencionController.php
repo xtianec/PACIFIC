@@ -2,6 +2,7 @@
 // File: controlador/TipoRetencionController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/TipoRetencion.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new TipoRetencion();
 $id     = isset($_POST['id'])        ? limpiarCadena($_POST['id'])        : '';

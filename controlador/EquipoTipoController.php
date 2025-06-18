@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/EquipoTipo.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $tip = new EquipoTipo();
 
@@ -10,12 +11,12 @@ $nombre = isset($_POST['nombre']) ? limpiarCadena($_POST['nombre']) : '';
 switch ($_GET['op']) {
     case 'guardar':
         $rspta = $tip->insertar($nombre);
-        echo $rspta ? "Tipo de equipo registrado correctamente" : "Error al registrar tipo de equipo";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Tipo de equipo registrado correctamente' : 'Error al registrar tipo de equipo']);
         break;
 
     case 'editar':
         $rspta = $tip->editar($id, $nombre);
-        echo $rspta ? "Tipo de equipo actualizado correctamente" : "Error al actualizar tipo de equipo";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Tipo de equipo actualizado correctamente' : 'Error al actualizar tipo de equipo']);
         break;
 
     case 'mostrar':

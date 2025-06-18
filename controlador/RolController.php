@@ -2,6 +2,7 @@
 // File: controlador/RolController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/Rol.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new Rol();
 $id     = isset($_POST['id'])        ? limpiarCadena($_POST['id'])        : '';

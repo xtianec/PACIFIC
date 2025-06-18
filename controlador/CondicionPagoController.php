@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/CondicionPago.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $cp = new CondicionPago();
 
@@ -11,12 +12,12 @@ $dias_credito  = isset($_POST['dias_credito'])  ? limpiarCadena($_POST['dias_cre
 switch ($_GET['op']) {
     case 'guardar':
         $rspta = $cp->insertar($descripcion, $dias_credito);
-        echo $rspta ? "Condición de pago registrada correctamente" : "Error al registrar condición de pago";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Condición de pago registrada correctamente' : 'Error al registrar condición de pago']);
         break;
 
     case 'editar':
         $rspta = $cp->editar($id, $descripcion, $dias_credito);
-        echo $rspta ? "Condición de pago actualizada correctamente" : "Error al actualizar condición de pago";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Condición de pago actualizada correctamente' : 'Error al actualizar condición de pago']);
         break;
 
     case 'mostrar':

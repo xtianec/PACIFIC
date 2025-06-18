@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/PlantillaRepuesto.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $pr = new PlantillaRepuesto();
 
@@ -14,7 +15,7 @@ $orden            = isset($_POST['orden'])            ? limpiarCadena($_POST['or
 switch ($_GET['op']) {
     case 'guardar':
         $rspta = $pr->insertar($plantilla_id, $articulo_id, $cantidad, $stock_actual, $orden);
-        echo $rspta ? "Repuesto asignado a plantilla" : "Error al asignar repuesto";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Repuesto asignado a plantilla' : 'Error al asignar repuesto']);
         break;
 
     case 'mostrar':

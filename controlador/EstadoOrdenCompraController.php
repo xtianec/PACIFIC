@@ -2,6 +2,7 @@
 // File: controlador/EstadoOrdenCompraController.php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/EstadoOrdenCompra.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $mc = new EstadoOrdenCompra();
 $id     = isset($_POST['id'])          ? limpiarCadena($_POST['id'])          : '';

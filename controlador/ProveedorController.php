@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/Proveedor.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $prov = new Proveedor();
 
@@ -31,7 +32,7 @@ switch ($_GET['op']) {
             $contacto_responsable, $cargo_contacto,
             $telefono_contacto, $email_contacto
         );
-        echo $rspta ? "Proveedor registrado correctamente" : "Error al registrar proveedor";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Proveedor registrado correctamente' : 'Error al registrar proveedor']);
         break;
 
     case 'editar':
@@ -44,7 +45,7 @@ switch ($_GET['op']) {
             $contacto_responsable, $cargo_contacto,
             $telefono_contacto, $email_contacto
         );
-        echo $rspta ? "Proveedor actualizado correctamente" : "Error al actualizar proveedor";
+        echo json_encode(['status' => $rspta ? 'success' : 'error', 'msg' => $rspta ? 'Proveedor actualizado correctamente' : 'Error al actualizar proveedor']);
         break;
 
     case 'mostrar':

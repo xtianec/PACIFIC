@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/Conexion.php';
 require_once __DIR__ . '/../modelos/PlantillaHoras.php';
+header('Content-Type: application/json; charset=utf-8');
 
 $ph = new PlantillaHoras();
 
