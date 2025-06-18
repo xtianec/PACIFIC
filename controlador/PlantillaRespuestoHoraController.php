@@ -24,6 +24,6 @@ switch ($_GET['op']) {
                 $reg->horas
             ];
         }
-        echo json_encode(["aaData" => $data]);
+        echo json_encode(["data" => $data]);
         break;
 }

@@ -76,7 +76,7 @@ switch ($_GET['op']) {
                           : '<button class="btn btn-success btn-xs" onclick="activarCliente(' . $reg->id . ')"><i class="fa fa-check-square"></i></button>')
             ];
         }
-        echo json_encode(["aaData" => $data]);
+        echo json_encode(["data" => $data]);
         break;
 
     case 'select':

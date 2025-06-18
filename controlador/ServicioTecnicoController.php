@@ -39,6 +39,6 @@ switch ($_GET['op']) {
                 htmlspecialchars($reg->notas)
             ];
         }
-        echo json_encode(["aaData" => $data]);
+        echo json_encode(["data" => $data]);
         break;
 }

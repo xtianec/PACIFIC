@@ -56,7 +56,7 @@ switch ($_GET['op']) {
                 $reg->estado_descripcion
             ];
         }
-        echo json_encode(["aaData" => $data]);
+        echo json_encode(["data" => $data]);
         break;
 
     case 'select':

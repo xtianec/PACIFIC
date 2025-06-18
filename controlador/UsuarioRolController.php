@@ -24,7 +24,7 @@ switch ($_GET['op']) {
                 "2"=>'<button onclick="desasignarUR('.$usuario_id.','.$reg->rol_id.')">✖</button>'
             ];
         }
-        echo json_encode(["aaData"=>$data]);
+        echo json_encode(["data"=>$data]);
         break;
     case 'select':
         $rspta = $mc->select();

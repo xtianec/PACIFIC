@@ -67,7 +67,7 @@ switch ($_GET['op']) {
                     : '<span class="badge badge-danger">Inactivo</span>'
             ];
         }
-        echo json_encode(["aaData" => $data]);
+        echo json_encode(["data" => $data]);
         break;
 
     case 'select':

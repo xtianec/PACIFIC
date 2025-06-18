@@ -39,7 +39,7 @@ switch ($_GET['op']) {
                 htmlspecialchars($reg->departamento)
             ];
         }
-        echo json_encode(["aaData" => $data]);
+        echo json_encode(["data" => $data]);
         break;
 
     case 'select':
