@@ -21,7 +21,16 @@
         </button>
         <div class="table-responsive">
           <table id="tblCategoriaProveedor" class="table color-table inverse-table" style="width:100%">
-            <thead id="tblHead" style="background-color: #2A3E52; color: white;"></thead>
+            <thead id="tblHead" style="background-color: #2A3E52; color: white;">
+              <tr>
+                <th width="5%">ID</th>
+                <th width="40%">Nombre</th>
+                <th width="15%">F. Creación</th>
+                <th width="15%">F. Actualización</th>
+                <th width="10%">Estado</th>
+                <th width="15%">Opciones</th>
+              </tr>
+            </thead>
             <tbody></tbody>
           </table>
         </div>
